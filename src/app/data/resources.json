@@ -1,0 +1,46 @@
+{
+  "jobsearch": [
+    {
+      "title": "Product management 101: ebook",
+      "href": "https://productschool.com/resources/ebooks/the-product-book"
+    },
+    {
+      "title": "Crafting a standout PM resume",
+      "href": "https://www.themuse.com/advice/product-manager-resume-guide"
+    },
+    {
+      "title": "Top PM job boards",
+      "href": "https://www.productmanagerhq.com/product-management-jobs/"
+    },
+    {
+      "title": "Optimize your LinkedIn for PM roles",
+      "href": "https://www.linkedin.com/pulse/linkedin-profile-tips-product-managers-john-doe/"
+    },
+    {
+      "title": "PM outreach email templates",
+      "href": "https://www.aha.io/roadmapping/guide/templates/outreach-templates"
+    }
+  ],
+  "interviews": [
+    {
+      "title": "Top PM behavioral questions & sample answers",
+      "href": "https://www.interviewcake.com/product-management-behavioral-questions"
+    },
+    {
+      "title": "Practice product sense case studies",
+      "href": "https://www.productmanagementexercises.com/"
+    },
+    {
+      "title": "PM metrics & execution interview prep",
+      "href": "https://www.productmanagementtoday.com/metrics-interview/"
+    },
+    {
+      "title": "PM offer negotiation checklist",
+      "href": "https://hbr.org/2020/07/how-to-negotiate-your-job-offer"
+    },
+    {
+      "title": "Book a mock PM interview session",
+      "href": "https://calendly.com/elia-ahadi/pm-mock-interview"
+    }
+  ]
+}

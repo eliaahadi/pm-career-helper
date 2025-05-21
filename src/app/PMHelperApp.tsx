@@ -1,6 +1,6 @@
-// app/PMHelperApp.tsx
 "use client";
 import React from "react";
+import resources from "./data/resources.json";
 
 export default function PMHelperApp() {
   const [section, setSection] = React.useState<"home"|"jobsearch"|"interviews">("home");
@@ -29,27 +29,41 @@ export default function PMHelperApp() {
 
       {section === "jobsearch" && (
         <div className="bg-white shadow rounded p-6 space-y-4">
-          <h2 className="text-2xl font-semibold">aspiring pm resources</h2>
-          <ul className="list-disc pl-5 space-y-1 text-gray-700">
-            <li>how to get into PM (guide & checklist)</li>
-            <li>resume builder tips</li>
-            <li>job board links for PM roles</li>
-            <li>LinkedIn profile optimization</li>
-            <li>outreach message templates</li>
-          </ul>
+          <h2 className="text-2xl font-semibold">aspiring PM resources</h2>
+          <ol className="list-decimal pl-5 space-y-1 text-blue-600 underline">
+            {resources.jobsearch.map((item) => (
+              <li key={item.title}>
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:opacity-80"
+                >
+                  {item.title}
+                </a>
+              </li>
+            ))}
+          </ol>
         </div>
       )}
 
       {section === "interviews" && (
         <div className="bg-white shadow rounded p-6 space-y-4">
           <h2 className="text-2xl font-semibold">mock interviews & offer prep</h2>
-          <ul className="list-disc pl-5 space-y-1 text-gray-700">
-            <li>behavioral question bank + example answers</li>
-            <li>product sense case study practice</li>
-            <li>execution / metrics interview prep</li>
-            <li>offer negotiation checklist</li>
-            <li>book a mock interview session</li>
-          </ul>
+          <ol className="list-decimal pl-5 space-y-1 text-blue-600 underline">
+            {resources.interviews.map((item) => (
+              <li key={item.title}>
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:opacity-80"
+                >
+                  {item.title}
+                </a>
+              </li>
+            ))}
+          </ol>
         </div>
       )}
     </div>
