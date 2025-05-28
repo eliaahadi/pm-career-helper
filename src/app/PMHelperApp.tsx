@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, ChangeEvent } from "react";
 import resources from "./data/resources.json";
 
 export default function PMHelperApp() {
@@ -91,7 +91,7 @@ export default function PMHelperApp() {
   };
 
   const sortList = (list: {title:string, href:string}[]) => {
-    let sorted = [...list];
+    const sorted = [...list];
     if(sortOption==='alpha') sorted.sort((a,b)=>a.title.localeCompare(b.title));
     else if(sortOption==='favorites') sorted.sort((a,b)=> (favorites.has(b.href)?1:0)-(favorites.has(a.href)?1:0));
     else if(sortOption==='recent') sorted.sort((a,b)=>{
@@ -155,8 +155,13 @@ export default function PMHelperApp() {
             className="border rounded px-3 py-2 w-full max-w-md"
             value={searchTerm} onChange={e=>setSearchTerm(e.target.value)}
           />
-          <select className="border rounded px-3 py-2"
-            value={sortOption} onChange={e=>setSortOption(e.target.value as any)}>
+          <select
+            className="border rounded px-3 py-2"
+            value={sortOption}
+            onChange={(e: ChangeEvent<HTMLSelectElement>) =>
+              setSortOption(e.target.value as 'default' | 'alpha' | 'favorites' | 'recent')
+            }
+          >
             <option value="default">Sort: default</option>
             <option value="alpha">A→Z</option>
             <option value="favorites">Favorites first</option>
@@ -176,7 +181,20 @@ export default function PMHelperApp() {
                   {item.title}
                 </a>
                 <div className="space-x-2">
-                  <button onClick={()=>{ const s=new Set(favorites); s.has(item.href)?s.delete(item.href):s.add(item.href); setFavorites(s); }} className="text-xl">{favorites.has(item.href)?'★':'☆'}</button>
+                  <button
+                    onClick={() => {
+                      const s = new Set(favorites);
+                      if (s.has(item.href)) {
+                        s.delete(item.href);
+                      } else {
+                        s.add(item.href);
+                      }
+                      setFavorites(s);
+                    }}
+                    className="text-xl"
+                  >
+                    {favorites.has(item.href) ? '★' : '☆'}
+                  </button>
                   <button onClick={()=>openNotesModal(item.href)} className="text-xl">📝</button>
                 </div>
               </li>
@@ -202,7 +220,20 @@ export default function PMHelperApp() {
                   {item.title}
                 </a>
                 <div className="space-x-2">
-                  <button onClick={()=>{ const s=new Set(favorites); s.has(item.href)?s.delete(item.href):s.add(item.href); setFavorites(s); }} className="text-xl">{favorites.has(item.href)?'★':'☆'}</button>
+                  <button
+                    onClick={() => {
+                      const s = new Set(favorites);
+                      if (s.has(item.href)) {
+                        s.delete(item.href);
+                      } else {
+                        s.add(item.href);
+                      }
+                      setFavorites(s);
+                    }}
+                    className="text-xl"
+                  >
+                    {favorites.has(item.href) ? '★' : '☆'}
+                  </button>
                   <button onClick={()=>openNotesModal(item.href)} className="text-xl">📝</button>
                 </div>
               </li>
